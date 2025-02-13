@@ -48,4 +48,4 @@ if __name__ == "__main__":
     extracted_message = extract_message_from_wav(output_wav)
 
     if extracted_message:
-        print("Извлеченное сообщение:", extracted_message)
+        print("Извлеченное сообщение:\n", extracted_message)
