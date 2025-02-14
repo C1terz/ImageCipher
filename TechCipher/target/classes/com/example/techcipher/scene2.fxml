@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="515.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techcipher.SceneController">
+   <children>
+      <Label layoutX="124.0" layoutY="33.0" prefHeight="27.0" prefWidth="268.0" text="Шифровка/Расшифровка Аудио">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="68.0" prefHeight="26.0" prefWidth="93.0" text="Шифровка">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="323.0" layoutY="68.0" prefHeight="26.0" prefWidth="109.0" text="Расшифровка">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="38.0" layoutY="248.0" mnemonicParsing="false" onAction="#FileSelect3" prefHeight="27.0" prefWidth="203.0" text="Зашифровать" />
+      <TextArea fx:id="audInput" layoutX="38.0" layoutY="92.0" prefHeight="153.0" prefWidth="203.0" promptText="Введите текст для шифровки в аудио." wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <Button layoutX="276.0" layoutY="248.0" mnemonicParsing="false" onAction="#FileSelect4" prefHeight="27.0" prefWidth="203.0" text="Расшифровать" />
+      <TextArea fx:id="audOutput" editable="false" layoutX="276.0" layoutY="92.0" prefHeight="153.0" prefWidth="203.0" promptText="Здесь появится текст после расшифровки." wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <Button mnemonicParsing="false" onAction="#onSceneSwitch" prefHeight="25.0" prefWidth="93.0" text="Изображения" wrapText="true" />
+      <Button layoutX="93.0" mnemonicParsing="false" onAction="#onSceneSwitch2" prefHeight="25.0" prefWidth="54.0" text="Аудио" />
+      <Label fx:id="WarningAudio" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="275.0" prefHeight="27.0" prefWidth="203.0" wrapText="true" />
+   </children>
+</AnchorPane>
