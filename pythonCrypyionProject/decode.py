@@ -1,5 +1,22 @@
 import wave
+from math import ceil
 
+def transposition_decrypt(ciphertext):
+    converted=[]
+    lines = ceil(len(ciphertext)/3)
+    text_l=list(ciphertext)
+    table = [[' ' for _ in range(3)] for _ in range(lines)]
+    index=0
+    for i in range (3):
+        for j in range(lines):
+            table[j][i]=text_l[index]
+            index+=1
+
+    for i in table:
+        union=''.join(i)
+        converted.append(union)
+    decrypted_text = ''.join(converted)
+    return decrypted_text
 
 def extract_message_from_wav(input_wav_path):
 
@@ -24,16 +41,19 @@ def extract_message_from_wav(input_wav_path):
             extracted_bytes.append(current_byte)
             current_byte = 0
 
-        decoded_message = bytearray(extracted_bytes).decode('utf-8', errors='ignore')
+        decoded_message1 = bytearray(extracted_bytes).decode('utf-8', errors='ignore')
 
         end_marker = "====="
-        end_index = decoded_message.find(end_marker)
+        end_index = decoded_message1.find(end_marker)
 
         if end_index != -1:
-            return decoded_message[:end_index]
+            decoded_message1=decoded_message1[:end_index]
         else:
             print("Маркер конца сообщения не найден.  Возможно, сообщение повреждено или файл не содержит стеганографию.")
             return None
+        decoded_message = transposition_decrypt(decoded_message1)
+
+        return decoded_message
 
     except FileNotFoundError:
         print("Ошибка: Файл не найден.")
@@ -41,6 +61,7 @@ def extract_message_from_wav(input_wav_path):
     except Exception as e:
         print(f"Произошла ошибка при извлечении сообщения: {e}")
         return None
+
 
 
 if __name__ == "__main__":
